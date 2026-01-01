@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuits & Networks | Exam Prep</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EET201<span>.Prep</span></div>
+    <nav class="nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#m1" class="nav-link">Module 1</a>
+      <a href="#m2" class="nav-link">Module 2</a>
+      <a href="#m3" class="nav-link">Module 3</a>
+      <a href="#m4" class="nav-link">Module 4</a>
+      <a href="#m5" class="nav-link">Module 5</a>
+      <a href="#strategy" class="nav-link">Exam Strategy</a>
+    </nav>
+    <button class="burger" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="section hero">
+      <div class="hero-text">
+        <p class="hero-badge">KTU • S3 EEE • EET201</p>
+        <h1>Circuits & Networks Exam Prep</h1>
+        <h2>Formulas, methods and step‑wise approaches module‑wise.</h2>
+        <p class="hero-desc">
+          This site collects the most important laws, formulas, and solution methods for KTU’s
+          Circuits & Networks (EET201) subject, organised module‑wise so you can revise quickly
+          before exams.
+        </p>
+        <div class="hero-actions">
+          <a href="#m1" class="btn primary">Start with Module 1</a>
+          <a href="#strategy" class="btn ghost">Exam Strategy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 1 -->
+    <section id="m1" class="section">
+      <div class="section-heading">
+        <h2>Module 1 – Basic laws & theorems</h2>
+        <p>KCL, KVL, source transformations, nodal/mesh, superposition, Thevenin/Norton, max power.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Core laws & power</h3>
+          <ul class="list">
+            <li><strong>KCL:</strong> Sum of currents leaving a node = sum entering.</li>
+            <li><strong>KVL:</strong> Sum of voltage rises = sum of drops around any loop.</li>
+            <li><strong>Ohm’s law:</strong> \(V = IR\).</li>
+            <li><strong>Power:</strong> \(P = VI = I^2R = V^2/R\).</li>
+          </ul>
+          <h4>Source transformation</h4>
+          <ul class="list">
+            <li>\(V_s\) in series with \(R_s\) ↔ \(I_s = V_s/R_s\) in parallel with \(R_s\).</li>
+            <li>Use to simplify many source networks.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Nodal analysis – exam steps</h3>
+          <ol class="list numbered">
+            <li>Choose reference node (0 V).</li>
+            <li>Assign node voltages to all other nodes.</li>
+            <li>Apply KCL at each non‑reference node using currents in terms of node voltages.</li>
+            <li>Solve linear equations for node voltages.</li>
+            <li>Find branch currents using Ohm’s law.</li>
+          </ol>
+          <h4>Mesh analysis – exam steps</h4>
+          <ol class="list numbered">
+            <li>Identify meshes and assign mesh currents.</li>
+            <li>Apply KVL in each mesh (take shared resistors with current differences).</li>
+            <li>Solve simultaneous equations for mesh currents.</li>
+            <li>Obtain branch currents from mesh currents.</li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Superposition</h3>
+          <ol class="list numbered">
+            <li>Pick one independent source active at a time.</li>
+            <li>Turn off other voltage sources → short; current sources → open.</li>
+            <li>Find response (current/voltage) due to that source.</li>
+            <li>Repeat for all sources and sum responses.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h3>Thevenin & Norton</h3>
+          <h4>Thevenin</h4>
+          <ol class="list numbered">
+            <li>Remove load between terminals A–B.</li>
+            <li>Find open‑circuit voltage \(V_{TH}\) at A–B.</li>
+            <li>Turn off independent sources and find \(R_{TH}\) seen from A–B, or use \(R_{TH}=V_{TH}/I_{SC}\).</li>
+            <li>Equivalent: \(V_{TH}\) in series with \(R_{TH}\).</li>
+          </ol>
+          <h4>Norton</h4>
+          <ol class="list numbered">
+            <li>Find short‑circuit current \(I_N\) between A–B.</li>
+            <li>Use \(R_N = R_{TH}\).</li>
+            <li>Equivalent: current source \(I_N\) in parallel with \(R_N\).</li>
+          </ol>
+          <p><strong>Max power:</strong> for DC, \(R_L = R_{TH}\) gives maximum power transfer.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULE 2 -->
+    <section id="m2" class="section">
+      <div class="section-heading">
+        <h2>Module 2 – First & second order circuits</h2>
+        <p>RL, RC, RLC responses and time constants.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>First‑order (RL / RC)</h3>
+          <p>General form:</p>
+          <p>\( \frac{dx(t)}{dt} + \frac{1}{\tau}x(t) = \frac{1}{\tau}x_\infty \)</p>
+          <p>Solution:</p>
+          <p>\( x(t) = x_\infty + (x(0^+) - x_\infty)e^{-t/\tau} \)</p>
+          <ul class="list">
+            <li>RL: \(\tau = L/R_{eq}\).</li>
+            <li>RC: \(\tau = R_{eq}C\).</li>
+          </ul>
+          <h4>Standard step responses</h4>
+          <ul class="list">
+            <li>Series RL (DC step V): \(i(t)=\frac{V}{R}(1-e^{-t/\tau})\).</li>
+            <li>RC charge (step V): \(v_C(t)=V(1-e^{-t/RC})\).</li>
+            <li>RC discharge: \(v_C(t)=V_0 e^{-t/RC}\).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Second‑order (RLC series)</h3>
+          <p>Characteristic equation:</p>
+          <p>\( s^2 + 2\alpha s + \omega_0^2 = 0 \)</p>
+          <ul class="list">
+            <li>\(\alpha = R/2L\), \(\omega_0 = 1/\sqrt{LC}\).</li>
+            <li>Damping factor: \(\zeta = \alpha/\omega_0\).</li>
+          </ul>
+          <h4>Cases</h4>
+          <ul class="list">
+            <li>Overdamped: \(\zeta &gt; 1\)</li>
+            <li>Critically damped: \(\zeta = 1\)</li>
+            <li>Underdamped: \(\zeta &lt; 1\)</li>
+          </ul>
+          <p>Underdamped response:</p>
+          <p>\( x(t) = e^{-\alpha t}(A\cos\omega_d t + B\sin\omega_d t) \), \(\omega_d=\omega_0\sqrt{1-\zeta^2}\).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULE 3 -->
+    <section id="m3" class="section">
+      <div class="section-heading">
+        <h2>Module 3 – s‑domain & coupled circuits</h2>
+        <p>Laplace, s‑domain circuits, transfer functions, mutual inductance.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>s‑domain basics</h3>
+          <ul class="list">
+            <li>Laplace: \(L\{f(t)\}=F(s)\).</li>
+            <li>Derivative: \(L\{df/dt\}=sF(s)-f(0^-)\).</li>
+            <li>Unit step: \(u(t) \rightarrow 1/s\).</li>
+          </ul>
+          <h4>s‑domain impedances (zero initial conditions)</h4>
+          <ul class="list">
+            <li>Resistor: \(Z_R = R\).</li>
+            <li>Inductor: \(Z_L = sL\).</li>
+            <li>Capacitor: \(Z_C=1/(sC)\).</li>
+          </ul>
+          <h4>Method</h4>
+          <ol class="list numbered">
+            <li>Transform to s‑domain (replace L,C with impedances).</li>
+            <li>Include initial conditions if needed.</li>
+            <li>Apply nodal/mesh, solve for \(V(s), I(s)\).</li>
+            <li>Partial fractions → inverse Laplace.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <h3>Transfer function</h3>
+          <p>\( H(s)=\dfrac{Y(s)}{X(s)} \) (output over input).</p>
+          <ul class="list">
+            <li>Poles: roots of denominator.</li>
+            <li>Zeros: roots of numerator.</li>
+            <li>Use poles/zeros to talk about stability and transient behaviour.</li>
+          </ul>
+
+          <h3>Mutual inductance</h3>
+          <ul class="list">
+            <li>\(M = k\sqrt{L_1L_2}\), \(0 \le k \le 1\).</li>
+            <li>Dot convention: sign of mutual term depends on current direction vs dots.</li>
+          </ul>
+          <p>Two‑coil equations:</p>
+          <p>\(v_1 = L_1 \frac{di_1}{dt} + M\frac{di_2}{dt}\)</p>
+          <p>\(v_2 = L_2 \frac{di_2}{dt} + M\frac{di_1}{dt}\)</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULE 4 -->
+    <section id="m4" class="section">
+      <div class="section-heading">
+        <h2>Module 4 – AC power & 3‑phase</h2>
+        <p>Complex power, power factor, balanced/unbalanced 3‑phase, resonance.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Complex power</h3>
+          <ul class="list">
+            <li>\(S = P + jQ = VI^*\).</li>
+            <li>\(P = VI\cos\phi\) (W), \(Q = VI\sin\phi\) (VAR).</li>
+            <li>\(|S| = VI\) (VA), power factor \(= P/|S|\).</li>
+          </ul>
+          <h4>Balanced 3‑phase</h4>
+          <ul class="list">
+            <li>Y: \(V_L=\sqrt{3}V_{ph}\), \(I_L=I_{ph}\).</li>
+            <li>Δ: \(V_L=V_{ph}\), \(I_L=\sqrt{3}I_{ph}\).</li>
+            <li>Total power: \(P=\sqrt{3}V_L I_L \cos\phi\).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Unbalanced 3‑phase (overview)</h3>
+          <ul class="list">
+            <li>Unbalanced Y with neutral: solve each phase separately.</li>
+            <li>Neutral current: phasor sum of phase currents.</li>
+            <li>Unbalanced Δ: convert to Y or use line equations.</li>
+          </ul>
+
+          <h3>Resonance (series RLC)</h3>
+          <ul class="list">
+            <li>Impedance: \(Z = R + j(\omega L - 1/(\omega C))\).</li>
+            <li>Resonance: \(\omega_0 = 1/\sqrt{LC}\), circuit purely resistive.</li>
+            <li>Quality factor: \(Q = \omega_0 L/R\).</li>
+            <li>Bandwidth: \(BW = \omega_0/Q\).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODULE 5 -->
+    <section id="m5" class="section">
+      <div class="section-heading">
+        <h2>Module 5 – Two‑port networks</h2>
+        <p>Z, Y, h, ABCD parameters, reciprocity, symmetry, interconnection.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Definitions</h3>
+          <p>Two‑port: input port (1–1′) and output port (2–2′), voltages \(V_1, V_2\), currents \(I_1, I_2\) entering ports.</p>
+          <h4>Z‑parameters</h4>
+          <p>\(V_1 = Z_{11}I_1 + Z_{12}I_2\)</p>
+          <p>\(V_2 = Z_{21}I_1 + Z_{22}I_2\)</p>
+          <ul class="list">
+            <li>\(Z_{11} = V_1/I_1 |_{I_2=0}\)</li>
+            <li>\(Z_{22} = V_2/I_2 |_{I_1=0}\)</li>
+            <li>\(Z_{12} = V_1/I_2 |_{I_1=0}\)</li>
+            <li>\(Z_{21} = V_2/I_1 |_{I_2=0}\)</li>
+          </ul>
+          <h4>Y‑parameters</h4>
+          <p>\(I_1 = Y_{11}V_1 + Y_{12}V_2\)</p>
+          <p>\(I_2 = Y_{21}V_1 + Y_{22}V_2\)</p>
+        </article>
+
+        <article class="card">
+          <h3>Conversions & conditions</h3>
+          <h4>Z ↔ Y</h4>
+          <p>If \( [Z] \) is 2×2, then \( [Y] = [Z]^{-1} \).</p>
+          <p>\( [Y] = \frac{1}{\Delta_Z}\begin{bmatrix}Z_{22} & -Z_{12} \\ -Z_{21} & Z_{11}\end{bmatrix} \), \(\Delta_Z = Z_{11}Z_{22} - Z_{12}Z_{21}\).</p>
+          <h4>Reciprocity & symmetry</h4>
+          <ul class="list">
+            <li>Reciprocal (Z): \(Z_{12}=Z_{21}\).</li>
+            <li>Symmetric (Z): \(Z_{11}=Z_{22}\) and \(Z_{12}=Z_{21}\).</li>
+          </ul>
+          <h4>ABCD (T) parameters</h4>
+          <p>\(V_1 = AV_2 - BI_2\)</p>
+          <p>\(I_1 = CV_2 - DI_2\)</p>
+          <p>Cascade: multiply ABCD matrices of sections.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXAM STRATEGY -->
+    <section id="strategy" class="section">
+      <div class="section-heading">
+        <h2>Exam strategy </h2>
+        <p>How to use these formulas in 1–3 day revision.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>1. One day per 2 modules</h3>
+          <ul class="list">
+            <li>Day 1: Modules 1 & 2 – laws, theorems, RL/RC, RLC cases.</li>
+            <li>Day 2: Modules 3 & 4 – s‑domain, mutual inductance, complex power, 3‑phase, resonance.</li>
+            <li>Day 3: Module 5 + full paper solving (2–3 previous papers).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>2. When you see a question…</h3>
+          <ul class="list">
+            <li>Recognise type: nodal/mesh, Thevenin, transient, Laplace, 3‑phase, two‑port.</li>
+            <li>Write the standard steps from these cards before plugging numbers.</li>
+            <li>Keep units clear and mark final answers with proper notation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Threesa Nayana Joseph • Circuits & Networks Exam Prep</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
